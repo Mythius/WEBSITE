@@ -1,0 +1,62 @@
+@font-face {
+	font-family: concertone;
+	src: url(concertone.ttf);
+}
+
+body{
+	/*background-image: url(https://silviahartmann.com/background-tile-art/images/gray-background-repeating-2.jpg);*/
+	background-image: url(background.png);
+	font-family: 'Righteous', cursive;
+	text-align: center;
+	margin: 0;
+	letter-spacing: .1em;
+}
+
+h1{
+	color: white;
+	font-size: 3em;
+	background-color: black;
+	margin: 0;
+	padding: 15px;
+	opacity: .9;
+}
+
+nav{
+	background-color: black;
+	display: grid;
+	grid-template-columns: repeat(4,25%);
+	opacity: .9;
+}
+
+nav>a{
+	box-sizing: border-box;
+	width:100%;
+	display: inline-block;
+	padding: 15px;
+	color: white;
+	text-decoration: none;
+	transition: background-color .2s;
+}
+
+nav>a:hover{
+	background-color: #222;
+}
+
+main{
+	background-color: black;
+	opacity: .9;
+	color: white;
+}
+
+canvas{
+	background-color: #222;
+}
+
+main>*{
+	display: grid;
+	grid-template-columns: 75% 25%;
+}
+
+main>*>*{
+	width: 100%;
+}
