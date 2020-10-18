@@ -39,7 +39,7 @@ class client{
 }
 client.all = [];
 
-const port = 80;
+const port = 8080;
 const path = __dirname+'/';
 
 app.use(express.static(path+'site/'));
