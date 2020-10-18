@@ -4,6 +4,8 @@
 	<title>Matthias</title>
 	<script src=/socket.io/socket.io.js></script>
 	<script src=helpers.js></script>
+	<script src="projects/input.js"></script>
+	<script src="projects/grid.js"></script>
 	<link rel=stylesheet href=style.css>
 	<link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
 </head>
@@ -12,7 +14,7 @@
 	<nav>
 		<a href="index.html">Home</a>
 		<a href="contact.html">Contact</a>
-		<a href="projects.html">Projects</a>
+		<a href="games.html">Games</a>
 		<a href="about.html">About Me</a>
 	</nav>
 	<br>
@@ -28,6 +30,7 @@
 				<button onclick="obj('#mazecanvas').requestFullscreen()">Fullscreen</button>
 			</h3>
 			<canvas id=mazecanvas width=400 height=400></canvas>
+			<script src=projects/maze.js></script>
 		</div>
 		<br>
 		<div id="battleship">
@@ -41,8 +44,33 @@
 			</h3>
 			<img src="projects/battleship.png" alt="battleship">
 		</div>
+		<br>
+		<div id="battleship">
+			<h3>
+				Ninny's Chess
+				<p>
+					This is my version of a game called Ninny's Chess. 
+					<br><br>
+					The rules are that all pieces can only move in the direction of the arrows
+					of the tile they are on. 
+					<br><br>
+					The Ninnys (<img src=projects/ninny/red_ninny.png style="width:20px">) can only move 1 square at a time. 
+					<br><br>
+					The Numskulls (<img src=projects/ninny/blue_numskull.png style="width:20px">) can move as far as they want in the direction of the arrows. 
+					<br><br>
+					The Brain (<img src=projects/ninny/red_brain.png style="width:20px">) can move only one square like the ninnys.
+					<br><br>
+					However if the Brain is captured you lose, and your opponent wins.
+					<br><br>
+					Red Moves First
+				</p>
+				<button onclick="Ninny.start(obj('#ninnycanvas'))">Start Game</button>
+				<button onclick="obj('#ninnycanvas').requestFullscreen()">Fullscreen</button>
+			</h3>
+			<canvas id=ninnycanvas width=600 height=600></canvas>
+			<script src=projects/ninny/ninny.js></script>
+		</div>
 	</main>
-	<script src=projects/maze.js></script>
 	<script src=main.js></script>
 </body>
 </html>

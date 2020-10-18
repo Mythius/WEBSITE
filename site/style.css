@@ -10,6 +10,7 @@ body{
 	text-align: center;
 	margin: 0;
 	letter-spacing: .1em;
+	overflow-x: hidden;
 }
 
 h1{
@@ -42,9 +43,6 @@ nav>a:hover{
 	background-color: #222;
 }
 
-main{
-}
-
 canvas{
 	background-color: #222;
 }
@@ -57,7 +55,11 @@ main>*{
 	color: white;
 }
 
-main>*>*{
+main>div>*{
+
+}
+
+main>div>img,main>div>canvas{
 	width: 100%;
 }
 
@@ -87,4 +89,9 @@ button{
 button:hover{
 	background-color: white;
 	color: black;
+}
+
+p>img{
+	display: inline-block;
+	transform: translateY(5px);
 }
