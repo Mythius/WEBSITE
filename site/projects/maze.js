@@ -178,19 +178,15 @@
                 if (c1) {
                     if (tempy) {
                         if (tempy > 0) {
-                            console.log('down');
                             ok = c1.getWall(2);
                         } else {
-                            console.log('up');
                             ok = c1.getWall(0);
                         }
                     } else if (tempx) {
                         if (tempx > 0) {
                             ok = c1.getWall(3);
-                            console.log('right');
                         } else {
                             ok = c1.getWall(1);
-                            console.log('left');
                         }
                     }
                 }
