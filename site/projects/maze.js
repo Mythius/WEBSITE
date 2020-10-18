@@ -138,9 +138,12 @@
     Maze.start = function(can){
     	canvas = can;
     	ctx = canvas.getContext('2d');
+        stack = [];
+        cells = [];
     	g = new Grid;
 	    canvas.width = width;
 	    canvas.height = height;
+        if(LOOP) clearInterval(LOOP);
 	    LOOP = setInterval(loop, 1000 / fps);
 	    player = new Player;
     }

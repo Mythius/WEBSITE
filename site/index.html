@@ -19,12 +19,27 @@
 	<main>
 		<div id=maze>
 			<h3>
-				Pathfinding
+				Maze Generator
+				<br>
 				<p>
-					Maze Generation
+					This is a Program I made, that implements the Randomized Prim's algorithm. Which does a depth first search and recursive backtracking. After generating the maze, I decided to give you a chance to solve it. Move the black dot with (W,A,S,D).
 				</p>
+				<button onclick="Maze.start(obj('#mazecanvas'))">Start Maze</button>
+				<button onclick="obj('#mazecanvas').requestFullscreen()">Fullscreen</button>
 			</h3>
-			<canvas width=300 height=250></canvas>
+			<canvas id=mazecanvas width=400 height=400></canvas>
+		</div>
+		<br>
+		<div id="battleship">
+			<h3>
+				Battleship
+				<p>
+					I created a version of the game battleship. This is a multiplayer game that runs on a Node.js server using socket.io.
+					While it doesn't have the best graphics, (I'm not an artist). It was my first game that connected multiple users over the internet.
+				</p>
+				<button onclick="window.open('http://battleship.mythius.repl.co', '_blank');">Open Battleship</button>
+			</h3>
+			<img src="projects/battleship.png" alt="battleship">
 		</div>
 	</main>
 	<script src=projects/maze.js></script>
