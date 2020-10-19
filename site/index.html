@@ -91,17 +91,18 @@
 			<script src=projects/hilbert.js></script>
 		</div>
 		<br>
-		<div id=asteroids>
+		<div id=connect4>
 			<h3>
-				Asteroids
+				Connect 4
 				<br>
 				<p>
+					This is my version of a 2 player game called connect 4. If either color gets four circles in a row (horizontally, verticall, diaglonally) That person wins!
 				</p>
-				<button onclick="Asteroids.start(obj('#asteroidcanvas'))">Play Asteroids</button>
-				<button onclick="obj('#asteroidcanvas').requestFullscreen()">Fullscreen</button>
+				<button onclick="Connect4.start(obj('#connect4canvas'))">Play Connect 4</button>
+				<button onclick="obj('#connect4canvas').requestFullscreen()">Fullscreen</button>
 			</h3>
-			<canvas id=asteroidcanvas width=800 height=800></canvas>
-			<script src=projects/asteroids.js></script>
+			<canvas id=connect4canvas width=500 height=500></canvas>
+			<script src=projects/connect4.js></script>
 		</div>
 	</main>
 	<script src=main.js></script>

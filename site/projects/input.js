@@ -4,9 +4,10 @@ class mouse{
     static pos = { x: 0, y: 0 };
     static down = false;
     static right = false;
+    static element;
     static transformPos(e){
         var x,y;
-        var element = e.target;
+        var element = mouse.element;
         let br = element.getBoundingClientRect();
         if(FULLSCREEN){
             let ratio = window.innerHeight/element.height;
@@ -20,6 +21,7 @@ class mouse{
         return {x,y};
     }
     static start(element=document.documentElement) {
+        mouse.element = element;
         function mousemove(e) {
             let pos = mouse.transformPos(e);
             mouse.pos.x = pos.x;
