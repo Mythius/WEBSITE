@@ -9,7 +9,7 @@ function create(el,text=''){
     e.innerHTML = text;
     return e;
 }
-// const distance=(x,y,x1,y1)=>Math.round(Math.sqrt((x-x1)**2+(y-y1)**2));
+const distance=(x,y,x1,y1)=>Math.round(Math.sqrt((x-x1)**2+(y-y1)**2));
 function map(v,n1,n2,m1,m2){
     return (v-n1)/(n2-n1)*(m2-m1)+m1;
 }

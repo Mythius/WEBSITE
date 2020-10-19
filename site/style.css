@@ -95,3 +95,7 @@ p>img{
 	display: inline-block;
 	transform: translateY(5px);
 }
+
+p>a{
+	color: white !important;
+}

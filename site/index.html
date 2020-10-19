@@ -25,6 +25,8 @@
 				<br>
 				<p>
 					This is a Program I made, that implements the Randomized Prim's algorithm. Which does a depth first search and recursive backtracking. After generating the maze, I decided to give you a chance to solve it. Move the black dot with (W,A,S,D).
+					<br><br>
+					<a href="https://en.wikipedia.org/wiki/Maze_generation_algorithm" target="_blank">Wikipedia: Maze Generation</a>
 				</p>
 				<button onclick="Maze.start(obj('#mazecanvas'))">Start Maze</button>
 				<button onclick="obj('#mazecanvas').requestFullscreen()">Fullscreen</button>
@@ -33,7 +35,7 @@
 			<script src=projects/maze.js></script>
 		</div>
 		<br>
-		<div id="battleship">
+		<div id=battleship>
 			<h3>
 				Battleship
 				<p>
@@ -45,7 +47,7 @@
 			<img src="projects/battleship.png" alt="battleship">
 		</div>
 		<br>
-		<div id="battleship">
+		<div id=ninny>
 			<h3>
 				Ninny's Chess
 				<p>
@@ -69,6 +71,37 @@
 			</h3>
 			<canvas id=ninnycanvas width=600 height=600></canvas>
 			<script src=projects/ninny/ninny.js></script>
+		</div>
+		<br>
+		<div id=hilbert>
+			<h3>
+				Hilbert Curve
+				<br>
+				<p>
+					This program is an implementation of Hilberts curve which is a space filling curve. 
+					<br>
+					The hilberts curve is graphically represented to a random order between 2 and 6. So feel free to generate it multiple times.
+					<br><br>
+					<a href="https://en.wikipedia.org/wiki/Hilbert_curve" target="_blank">Wikipedia: Hilberts Curve</a>
+				</p>
+				<button onclick="Hilbert.start(obj('#hilbertcanvas'))">Generate Curve</button>
+				<button onclick="obj('#hilbertcanvas').requestFullscreen()">Fullscreen</button>
+			</h3>
+			<canvas id=hilbertcanvas width=400 height=400></canvas>
+			<script src=projects/hilbert.js></script>
+		</div>
+		<br>
+		<div id=asteroids>
+			<h3>
+				Asteroids
+				<br>
+				<p>
+				</p>
+				<button onclick="Asteroids.start(obj('#asteroidcanvas'))">Play Asteroids</button>
+				<button onclick="obj('#asteroidcanvas').requestFullscreen()">Fullscreen</button>
+			</h3>
+			<canvas id=asteroidcanvas width=800 height=800></canvas>
+			<script src=projects/asteroids.js></script>
 		</div>
 	</main>
 	<script src=main.js></script>
