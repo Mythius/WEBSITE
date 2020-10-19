@@ -104,6 +104,20 @@
 			<canvas id=connect4canvas width=500 height=500></canvas>
 			<script src=projects/connect4.js></script>
 		</div>
+		<br>
+		<div id=minesweeper>
+			<h3>
+				Minesweeper
+				<br>
+				<p>
+					Classic Minesweeper Remake
+				</p>
+				<button onclick="Minesweeper.start(obj('#minesweepercanvas'))">Play Minesweeper</button>
+				<button onclick="obj('#minesweepercanvas').requestFullscreen()">Fullscreen</button>
+			</h3>
+			<canvas id=minesweepercanvas width=422 height=422 style="image-rendering: pixelated;"></canvas>
+			<script src=projects/minesweeper/minesweeper.js></script>
+		</div>
 	</main>
 	<script src=main.js></script>
 </body>

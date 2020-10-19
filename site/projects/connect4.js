@@ -19,6 +19,7 @@
 		}
 		this.board.offsetX = 10;
 		this.board.offsetY = 20;
+		mouse.start(canv);
 	}
 	Tile.prototype.solid = false;
 	function tileDraw(){
