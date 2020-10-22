@@ -4,13 +4,13 @@
 }
 
 body{
-	/*background-image: url(https://silviahartmann.com/background-tile-art/images/gray-background-repeating-2.jpg);*/
 	background-image: url(background.png);
 	font-family: 'Righteous', cursive;
 	text-align: center;
 	margin: 0;
 	letter-spacing: .1em;
 	overflow-x: hidden;
+	background-attachment: fixed;
 }
 
 h1{
