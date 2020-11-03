@@ -21,6 +21,13 @@
 		team2 = new Team('','blue',1);
 		turn = 0;
 		current_piece = null;
+		Touch.init(start=>{
+			mouse.pos.x = start.x;
+			mouse.pos.y = start.y;
+			mouse.down = true;
+		},move=>{},end=>{
+			mouse.down = false;
+		});
 	}
 
 	var canvas;
@@ -181,7 +188,7 @@
 	Grid.prototype.draw = function(){
 		this.forEach(tile=>{
 			tile.DRAW();
-		})
+		});
 	}
 
 	let board;
@@ -240,5 +247,7 @@
 			mouse.down = false;
 		}
 	}
+
+
 
 })(this);

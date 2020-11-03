@@ -8,7 +8,7 @@ class mouse{
     static transformPos(e){
         var x,y;
         var element = mouse.element;
-        let br = element.getBoundingClientRect();
+        let br = mouse.element.getBoundingClientRect();
         if(FULLSCREEN){
             let ratio = window.innerHeight/element.height;
             let offset = (window.innerWidth-(element.width*ratio))/2;
@@ -69,21 +69,33 @@ class keys{
 }
 class Touch{
     static all = [];
+    static initialized = false;
+    static onstart = () => {};
+    static onmove = () => {};
+    static onend = () => {};
+    static onhold = () => {};
     static checkPos(callback){
         for(let t of Touch.all){
             callback(t);
         }
     }
-    static init(startcallback=()=>{}){
-        document.addEventListener('touchstart',e=>{
-            Touch.start(e,startcallback);
+    static init(onstart=Touch.onstart,onmove=Touch.onmove,onend=Touch.onend,onhold=Touch.onhold){
+        Touch.onstart = onstart;
+        Touch.onmove = onmove;
+        Touch.onend = onend;
+        if(Touch.initialized) return;
+        Touch.initialized = true;
+        let el = mouse.element ? mouse.element : document;
+        el.addEventListener('touchstart',e=>{
+            Touch.start(e,Touch.onstart,Touch.onmove,Touch.onend,Touch.onhold);
         });
-        document.addEventListener('touchmove',Touch.move);
-        document.addEventListener('touchend',Touch.end);
+        el.addEventListener('touchmove',Touch.move);
+        el.addEventListener('touchend',Touch.end);
+        el.addEventListener('contextmenu',Touch.hold);
     }
-    static start(event,onstart,onmove=()=>{},onend=()=>{}){
+    static start(event,onstart,onmove,onend,onhold){
         for(let touch of event.changedTouches){
-            return new Touch(touch,onstart,onmove,onend);
+            return new Touch(touch,onstart,onmove,onend,onhold);
         }
     }
     static move(e){
@@ -110,7 +122,12 @@ class Touch{
             }
         }
     }
-    constructor(touch,onstart,onmove,onend){
+    static hold(e){
+        debugger;
+        let mp = mouse.transformPos(e);
+        Touch.onhold(mp);
+    }
+    constructor(touch,onstart,onmove,onend,onhold){
         this.id = touch.identifier;
         this.pos = {};
         this.start = {};
@@ -122,14 +139,15 @@ class Touch{
         this.onstart = onstart;
         this.onmove = onmove;
         this.onend = onend;
+        this.onhold = onhold;
+        this.onstart(pos);
         Touch.all.push(this);
-        this.onstart(this);
     }
     move(e){
         let np = mouse.transformPos(e);
         this.pos.x = np.x;
         this.pos.y = np.y;
-        this.onmove(this);
+        this.onmove(np);
     }
     end(e){
         let np = mouse.transformPos(e);
@@ -139,6 +157,6 @@ class Touch{
         if(ix != -1){
             Touch.all.splice(ix,1);
         }
-        this.onend(this);
+        this.onend(np);
     }
 }
