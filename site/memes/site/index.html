@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Memes</title>
+	<style>
+		body{
+			margin: 0;
+		}
+		button{
+			width: 100%;
+			position: sticky;
+			top: 0;
+			padding: 20px;
+			background-color: #222;
+			color: white;
+			transition: color .3s, background-color .3s;
+			left: 0;
+			border: 0;
+			box-sizing: border-box;
+		}
+		button:hover{
+			background-color: gray;
+		}
+		input[type=file]{
+			display: none;
+		}
+		img{
+			width: 100px;
+			image-rendering: pixelated;
+		}
+	</style>
+	<script src="helpers.js"></script>
+	<script src="/socket.io/socket.io.js"></script>
+</head>
+<body>
+	<button onclick="obj('input').click()">↑ Upload Memes ↑<input type=file multiple accept="image/*"></button>
+	<script src="main.js"></script>
+</body>
+</html>

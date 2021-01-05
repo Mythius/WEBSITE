@@ -20,7 +20,7 @@ var file = {
 }
 
 class client{
-	// static all = [];
+	static all = [];
 	constructor(socket){
 		this.socket = socket;
 		this.name = null;
@@ -37,19 +37,40 @@ class client{
 		this.socket.emit(name,dat);
 	}
 }
-client.all = [];
 
-const port = 8080;
+const port = 80;
 const path = __dirname+'/';
 
 app.use(express.static(path+'site/'));
 app.get(/.*/,function(request,response){
 	response.sendFile(path+'site/');
-	// recieveMsg(request.headers.referer);
 });
 
 http.listen(port,()=>{console.log('Serving Port: '+port)});
 
 io.on('connection',socket=>{
 	var c = new client(socket);
+
+	socket.on('addmeme',data=>{
+		saveImage(data.name,data.dataURL);
+	});
+
+	file.read('site/memes.log',data=>{
+		socket.emit('memeurls',data);
+	});
 });
+
+function saveImage(name,dataURL){
+	var string = dataURL;
+	var regex = /^data:.+\/(.+);base64,(.*)$/;
+
+	var matches = string.match(regex);
+	var ext = matches[1];
+	var data = matches[2];
+	var buffer = Buffer.from(data, 'base64');
+	fs.writeFileSync('site/memes/'+name, buffer);
+	fs.appendFile('site/memes.log','\n'+name, function (err) {
+		if (err) throw err;
+		console.log('Saved: '+name);
+	});
+}
