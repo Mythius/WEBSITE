@@ -75,6 +75,10 @@ main>div>h3>p{
 	font-size: 18px;
 }
 
+#minesweeper{
+	grid-template-columns: calc(100% - 422px) 422px;
+}
+
 button{
 	background-color: transparent;
 	border: 2px solid white;
