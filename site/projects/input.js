@@ -1,5 +1,12 @@
 var FULLSCREEN = false;
-document.onfullscreenchange = () => {FULLSCREEN = !FULLSCREEN};
+document.onfullscreenchange = () => {
+	FULLSCREEN = !FULLSCREEN;
+	if(FULLSCREEN){
+		try{screen.orientation.lock('landscape')}catch(e){}
+	} else {
+		screen.orientation.unlock();
+	}
+};
 class mouse{
     static pos = { x: 0, y: 0 };
     static down = false;
@@ -23,7 +30,11 @@ class mouse{
     static start(element=document.documentElement) {
         mouse.element = element;
         function mousemove(e) {
-            if(e.target!=element)return;
+            if(e.target!=element){
+		mouse.pos.x = -1;
+		mouse.pos.y = -1;
+		return;
+	    }
             let pos = mouse.transformPos(e);
             mouse.pos.x = pos.x;
             mouse.pos.y = pos.y;
