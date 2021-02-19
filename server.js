@@ -1,11 +1,14 @@
 var express = require('express');
+var fs = require('fs');
+var pk = fs.readFileSync('cred/key.pem');
+var c = fs.readFileSync('cred/cert.pem');
+var opts = {key:pk,cert:c};
 var app = express();
 var http = require('http').createServer(app);
 var io = require('socket.io')(http);
-var fs = require('fs');
 var system = require('child_process');
 var EF = require('./enchantedForest.js')
-
+var https = require('https').createServer(opts,app);
 
 var file = {
 	save: function(name,text){
@@ -46,6 +49,7 @@ client.all = [];
 
 
 const port = 8080;
+const securePort = 8443;
 const path = __dirname+'/';
 
 app.use(express.static(path+'site/'));
@@ -54,6 +58,7 @@ app.get(/.*/,function(request,response){
 });
 
 http.listen(port,()=>{console.log('Serving Port: '+port)});
+https.listen(securePort);
 
 io.on('connection',socket=>{
 	var c = new client(socket);
