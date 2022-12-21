@@ -42,8 +42,14 @@ const port = 80;
 const path = __dirname+'/';
 
 app.use(express.static(path+'site/'));
-app.get(/.*/,function(request,response){
-	response.sendFile(path+'site/');
+app.get(/.*/,function(req,response){
+	if(req.url.includes('/command.')){
+		let command = req.url.split('/command.')[1];
+		console.log('Responding to Command: '+command)
+		if(command == 'Hello') response.send('Hi');
+	} else {
+		response.sendFile(path+'site/');
+	}
 });
 
 http.listen(port,()=>{console.log('Serving Port: '+port)});
